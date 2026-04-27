@@ -1,0 +1,50 @@
+{
+  "name": "Your Name",
+  "email": "your.email@example.com",
+  "phone": "+91-XXXXXXXXXX",
+  "linkedin": "linkedin.com/in/yourprofile",
+  "github": "github.com/yourusername",
+
+  "summary": "Backend + AI engineer with experience building LLM-powered applications, REST APIs, and automation systems using Python, FastAPI, and Playwright.",
+
+  "education": [
+    {
+      "degree": "B.Tech in Computer Science",
+      "institution": "Your University",
+      "year": "2024",
+      "cgpa": "8.5"
+    }
+  ],
+
+  "experience": [
+    {
+      "title": "Software Engineering Intern",
+      "company": "Company Name",
+      "duration": "Jun 2023 – Aug 2023",
+      "bullets": [
+        "Built REST APIs using FastAPI serving 10k+ daily requests",
+        "Reduced latency by 30% by introducing async database calls",
+        "Integrated OpenAI GPT-4 for automated document summarization"
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "AI Job Automation System",
+      "tech": "Python, FastAPI, Playwright, OpenAI, SQLite",
+      "bullets": [
+        "Built end-to-end pipeline that scrapes LinkedIn jobs, scores relevance using GPT, and generates tailored resumes",
+        "Automated cover letter generation reducing application time by 80%",
+        "Designed async FastAPI backend with SQLAlchemy for job tracking dashboard"
+      ]
+    }
+  ],
+
+  "skills": {
+    "languages": ["Python", "SQL", "JavaScript"],
+    "frameworks": ["FastAPI", "SQLAlchemy", "Playwright"],
+    "ai_ml": ["OpenAI API", "LangChain", "Prompt Engineering"],
+    "tools": ["Git", "Docker", "PostgreSQL", "SQLite"]
+  }
+}
