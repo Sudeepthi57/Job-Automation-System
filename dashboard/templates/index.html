@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Automation Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Job Automation Dashboard</h1>
+    <button id="refresh-btn" onclick="loadAll()">Refresh</button>
+  </header>
+
+  <!-- Stats Bar -->
+  <section class="stats" id="stats">
+    <div class="stat-card">
+      <span class="stat-value" id="stat-total">—</span>
+      <span class="stat-label">Total Jobs</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-new">—</span>
+      <span class="stat-label">New</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-reviewed">—</span>
+      <span class="stat-label">Reviewed</span>
+    </div>
+    <div class="stat-card green">
+      <span class="stat-value" id="stat-applied">—</span>
+      <span class="stat-label">Applied</span>
+    </div>
+    <div class="stat-card red">
+      <span class="stat-value" id="stat-rejected">—</span>
+      <span class="stat-label">Rejected</span>
+    </div>
+    <div class="stat-card blue">
+      <span class="stat-value" id="stat-avg">—</span>
+      <span class="stat-label">Avg Score</span>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="filters">
+    <select id="filter-status" onchange="applyFilters()">
+      <option value="">All Statuses</option>
+      <option value="new">New</option>
+      <option value="reviewed">Reviewed</option>
+      <option value="applied">Applied</option>
+      <option value="rejected">Rejected</option>
+    </select>
+    <select id="filter-score" onchange="applyFilters()">
+      <option value="0">All Scores</option>
+      <option value="7">Score 7+</option>
+      <option value="8">Score 8+</option>
+      <option value="9">Score 9+</option>
+    </select>
+    <input id="filter-search" type="text" placeholder="Search title or company..." oninput="applyFilters()" />
+  </section>
+
+  <!-- Job List -->
+  <section class="job-list" id="job-list">
+    <p class="empty-msg">Loading jobs...</p>
+  </section>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
