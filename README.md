@@ -165,24 +165,4 @@ The scorer sends the job description along with your target role and skills to G
 
 Jobs scoring below the configured threshold are automatically marked as rejected so you only see relevant opportunities.
 
----
 
-## Resume Generation Example
-
-Given a job description for an *"AI Backend Engineer"* role, the generator produces bullets like:
-
-```
-• Built async FastAPI service handling 15k+ daily requests with sub-100ms latency
-• Integrated GPT-4 for automated document processing, reducing manual review by 70%
-• Designed SQLAlchemy ORM layer with async sessions for concurrent job pipeline
-```
-
----
-
-## What This Project Demonstrates
-
-- **Systems thinking** — end-to-end pipeline with clear separation of concerns
-- **Automation** — real browser automation with Playwright, not just API calls
-- **AI integration** — practical LLM usage beyond basic chat (scoring, generation, structured output)
-- **Backend engineering** — async FastAPI, SQLAlchemy, REST API design
-- **Product mindset** — solves a real problem with a usable interface
