@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from sqlalchemy import select, update
 from database.models import AsyncSession, Job
+from config import settings
 
 router = APIRouter()
 
@@ -29,6 +30,8 @@ async def get_job(job_id: int):
 
 @router.patch("/jobs/{job_id}/status")
 async def update_status(job_id: int, status: str):
+    if settings.demo_mode:
+        raise HTTPException(status_code=403, detail="Demo data cannot be changed")
     valid = {"new", "reviewed", "applied", "rejected"}
     if status not in valid:
         raise HTTPException(status_code=400, detail=f"Status must be one of {valid}")

@@ -33,6 +33,16 @@ header h1 {
 }
 #refresh-btn:hover { background: #1d4ed8; }
 
+.demo-banner {
+  margin: 16px 32px 0;
+  padding: 10px 14px;
+  background: #172554;
+  border: 1px solid #1d4ed8;
+  border-radius: 8px;
+  color: #bfdbfe;
+  font-size: 0.875rem;
+}
+
 /* Stats */
 .stats {
   display: flex;

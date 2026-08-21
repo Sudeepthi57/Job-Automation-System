@@ -13,6 +13,10 @@
     <button id="refresh-btn" onclick="loadAll()">Refresh</button>
   </header>
 
+  {% if demo_mode %}
+  <p class="demo-banner">Portfolio demo — sample data only. Status updates are disabled.</p>
+  {% endif %}
+
   <!-- Stats Bar -->
   <section class="stats" id="stats">
     <div class="stat-card">
@@ -72,6 +76,7 @@
     </div>
   </div>
 
+  <script>window.APP_CONFIG = { demoMode: {{ demo_mode|tojson }} };</script>
   <script src="/static/app.js"></script>
 </body>
 </html>

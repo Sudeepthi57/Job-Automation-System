@@ -122,9 +122,10 @@ async function openModal(id) {
     <div class="modal-actions">
       <a href="${esc(job.url)}" target="_blank" rel="noopener">View on LinkedIn ↗</a>
       <div style="flex:1"></div>
-      <button class="btn btn-purple" onclick="setStatus(${job.id}, 'reviewed')">Mark Reviewed</button>
-      <button class="btn btn-green"  onclick="setStatus(${job.id}, 'applied')">Mark Applied</button>
-      <button class="btn btn-red"    onclick="setStatus(${job.id}, 'rejected')">Reject</button>
+      ${window.APP_CONFIG?.demoMode ? '' : `
+        <button class="btn btn-purple" onclick="setStatus(${job.id}, 'reviewed')">Mark Reviewed</button>
+        <button class="btn btn-green"  onclick="setStatus(${job.id}, 'applied')">Mark Applied</button>
+        <button class="btn btn-red"    onclick="setStatus(${job.id}, 'rejected')">Reject</button>`}
     </div>`;
 
   document.getElementById('modal-overlay').classList.add('open');

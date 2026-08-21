@@ -5,6 +5,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi.requests import Request
 
 from database.models import init_db
+from database.demo import seed_demo_jobs
+from config import settings
 from api.routes import router
 from loguru import logger
 import sys
@@ -17,6 +19,8 @@ logger.add("logs/app.log", rotation="10 MB", retention="7 days")
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await init_db()
+    if settings.demo_mode:
+        await seed_demo_jobs()
     logger.info("Database initialized")
     yield
 
@@ -30,7 +34,9 @@ templates = Jinja2Templates(directory="dashboard/templates")
 
 @app.get("/")
 async def dashboard(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(
+        "index.html", {"request": request, "demo_mode": settings.demo_mode}
+    )
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     openai_model: str = "gpt-4o-mini"
 
     database_url: str = "sqlite+aiosqlite:///./jobs.db"
+    demo_mode: bool = False
 
     min_relevance_score: int = 6  # Jobs below this score are filtered out
 

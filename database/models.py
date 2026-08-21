@@ -6,6 +6,15 @@ from sqlalchemy.orm import DeclarativeBase
 from config import settings
 
 
+def _async_database_url(url: str) -> str:
+    """Use an async SQLAlchemy driver for either local SQLite or Render Postgres."""
+    if url.startswith("postgres://"):
+        return "postgresql+asyncpg://" + url.removeprefix("postgres://")
+    if url.startswith("postgresql://"):
+        return "postgresql+asyncpg://" + url.removeprefix("postgresql://")
+    return url
+
+
 class Base(AsyncAttrs, DeclarativeBase):
     pass
 
@@ -36,7 +45,7 @@ class Job(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 
-engine = create_async_engine(settings.database_url, echo=False)
+engine = create_async_engine(_async_database_url(settings.database_url), echo=False)
 AsyncSession = async_sessionmaker(engine, expire_on_commit=False)
 
 
